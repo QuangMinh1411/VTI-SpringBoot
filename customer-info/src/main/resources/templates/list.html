@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="index::header(list)">
+</head>
+<body>
+  <div class="container">
+    <div th:replace="index::navbar(list)"></div>
+    <table class="table align-middle">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Contact</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="custom,iCount:${customers}">
+        <th scope="row" th:text="${iCount.index+1}"></th>
+        <td>
+          <button data-bs-toggle="modal" type="button" class="btn btn-link "
+                  data-bs-target="#exampleModal" th:text="${custom.fullname}">
+          </button>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title text-primary " id="exampleModalLabel" th:text="|Information of ${custom.fullname}|"></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title" th:text="|Fullname: ${custom.fullname}|"></h5>
+                      <p class="card-text" th:text="|Email: ${custom.email}|">
+                      <p class="card-text" th:text="|Contact: ${custom.phone}|">
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td th:text="${custom.email}">Otto</td>
+        <td th:text="${custom.phone}"></td>
+        <td>
+          <a th:href="@{/edit/{id}(id=${custom.id})}" class="text-infor mx-2">Edit</a>
+          <a th:href="@{/delete/{id}(id=${custom.id})}" class="text-danger">Delete</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
