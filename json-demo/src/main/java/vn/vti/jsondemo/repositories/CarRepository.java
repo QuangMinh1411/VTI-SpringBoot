@@ -55,7 +55,7 @@ public class CarRepository {
     }
 
     public void deleteCar(String id){
-        cars.stream().filter(car -> !car.getId().equals(id)).collect(Collectors.toList());
+       cars = cars.stream().filter(car -> !car.getId().equalsIgnoreCase(id)).collect(Collectors.toList());
     }
 
     public Car updateCar(String id,Car newcar){
