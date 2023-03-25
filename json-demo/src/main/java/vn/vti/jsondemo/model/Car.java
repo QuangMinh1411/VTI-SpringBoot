@@ -12,4 +12,5 @@ public class Car {
     private String model;
     private String maker;
     private Integer year;
+    private String image;
 }
