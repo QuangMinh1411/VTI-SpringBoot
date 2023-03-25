@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="index::header(list)">
+</head>
+<body>
+<div class="container">
+  <div th:replace="index::navbar(list)"></div>
+  <table class="table align-middle">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Model</th>
+      <th scope="col">Maker</th>
+      <th scope="col">Year</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="car,iCount:${cars}">
+      <th scope="row" th:text="${iCount.index+1}"></th>
+      <td>
+        <button data-bs-toggle="modal" type="button" class="btn btn-link "
+                data-bs-target="#exampleModal" th:text="${car.model}">
+        </button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-primary " id="exampleModalLabel" th:text="|Information of ${car.model}|"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title" th:text="|Model: ${car.model}|"></h5>
+                    <p class="card-text" th:text="|Maker: ${car.maker}|">
+                    <p class="card-text" th:text="|Year: ${car.year}|">
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+      <td th:text="${car.maker}"></td>
+      <td th:text="${car.year}"></td>
+      <td>
+        <a th:href="@{/edit/{id}(id=${car.id})}" class="text-infor mx-2">Edit</a>
+        <a th:href="@{/delete/{id}(id=${car.id})}" class="text-danger">Delete</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

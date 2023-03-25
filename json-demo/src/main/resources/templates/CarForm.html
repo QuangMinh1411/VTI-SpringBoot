@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="index::header(form)">
+</head>
+<body>
+<div class="container">
+  <h1 class="text-center">Car Information Form</h1>
+  <form th:action="@{/post}" method="POST" th:object="${car}">
+    <input type="hidden" placeholder="id" th:field="*{id}"/><br><br>
+    <div class="mb-3">
+      <label for="maker" class="form-label">Maker</label>
+      <input type="text" class="form-control" id="maker" th:field="*{maker}">
+    </div>
+    <div class="mb-3">
+      <label for="model" class="form-label">Model</label>
+      <input type="text" class="form-control" id="model" th:field="*{model}">
+    </div>
+    <div class="mb-3">
+      <label for="year" class="form-label">Year</label>
+      <input type="number" class="form-control" id="year" th:field="*{year}">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+</body>
+</html>

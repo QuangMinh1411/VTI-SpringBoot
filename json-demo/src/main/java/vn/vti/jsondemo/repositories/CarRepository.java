@@ -34,6 +34,14 @@ public class CarRepository {
     }
 
     public Car saveCar(Car car){
+        int id;
+        if (cars.isEmpty()) {
+            id = 1;
+        } else {
+            Car lastCar = cars.get(cars.size() - 1);
+            id = lastCar.getId() + 1;
+        }
+        car.setId(id);
         cars.add(car);
         return car;
     }
@@ -46,6 +54,11 @@ public class CarRepository {
         return cars.stream().filter(car -> car.getMaker().equals(maker)).collect(Collectors.toList());
     }
 
+    public Car findById(Integer id){
+        return cars.stream().filter(car -> car.getId()==id).findFirst().orElse(null);
+
+    }
+
     public List<Car> sortBy(String sorting){
         if(sorting.equals("asc"))
             Collections.sort(cars, Comparator.comparing(Car::getYear));
@@ -54,13 +67,13 @@ public class CarRepository {
         return cars;
     }
 
-    public void deleteCar(String id){
-       cars = cars.stream().filter(car -> !car.getId().equalsIgnoreCase(id)).collect(Collectors.toList());
+    public void deleteCar(Integer id){
+       cars = cars.stream().filter(car -> car.getId()!=id).collect(Collectors.toList());
     }
 
-    public Car updateCar(String id,Car newcar){
+    public Car updateCar(Integer id,Car newcar){
 
-        Car car = cars.stream().filter(car1 -> car1.getId().equals(id)).findFirst().orElse(null);
+        Car car = cars.stream().filter(car1 -> car1.getId()==id).findFirst().orElse(null);
         if(car!=null){
             car.setModel(newcar.getModel());
             car.setMaker(newcar.getMaker());

@@ -45,12 +45,12 @@ public class CarControllerAPI {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteById(@PathVariable String id){
+    public ResponseEntity<?> deleteById(@PathVariable Integer id){
         carRepo.deleteCar(id);
         return ResponseEntity.ok("Delete success");
     }
     @PutMapping("/{id}")
-    public ResponseEntity<?>updateCar(@PathVariable String id, @RequestBody Car car){
+    public ResponseEntity<?>updateCar(@PathVariable Integer id, @RequestBody Car car){
         return ResponseEntity.ok(carRepo.updateCar(id,car));
     }
 

@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Car {
-    private String id;
+    private Integer id;
     private String model;
     private String maker;
     private Integer year;
