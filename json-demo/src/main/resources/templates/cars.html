@@ -16,6 +16,8 @@
         <th scope="col">Model</th>
         <th scope="col">Maker</th>
         <th scope="col">Year</th>
+        <th scope="col">Image</th>
+        <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
@@ -24,6 +26,9 @@
         <td th:text="${car.model}">Mark</td>
         <td th:text="${car.maker}">Otto</td>
         <td th:text="${car.year}">@mdo</td>
+        <td>
+            <img th:src="@{/photo/{name}.jpeg(name=${car.photo})}" class="img-fluid">
+        </td>
     </tr>
 
 

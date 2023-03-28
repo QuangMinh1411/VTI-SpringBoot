@@ -1,6 +1,7 @@
 package vn.vti.jsondemo.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -54,7 +55,7 @@ public class CarController {
     }
 
     @PostMapping("/post")
-    public String postInfo(@ModelAttribute("car") Car car, BindingResult result, Model model) {
+    public String postInfo(@Valid @ModelAttribute("car") Car car, BindingResult result, Model model) {
         if (!result.hasErrors()) {
             if(car.getId()!=null){
                 repo.updateCar(car.getId(), car);

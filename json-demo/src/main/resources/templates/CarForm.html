@@ -10,14 +10,17 @@
     <div class="mb-3">
       <label for="maker" class="form-label">Maker</label>
       <input type="text" class="form-control" id="maker" th:field="*{maker}">
+      <div class="text-danger" th:if="${#fields.hasErrors('maker')}" th:errors="*{maker}">
     </div>
     <div class="mb-3">
       <label for="model" class="form-label">Model</label>
       <input type="text" class="form-control" id="model" th:field="*{model}">
+      <div class="text-danger" th:if="${#fields.hasErrors('model')}" th:errors="*{model}">
     </div>
     <div class="mb-3">
       <label for="year" class="form-label">Year</label>
       <input type="number" class="form-control" id="year" th:field="*{year}">
+      <div class="text-danger" th:if="${#fields.hasErrors('year')}" th:errors="*{year}">
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
