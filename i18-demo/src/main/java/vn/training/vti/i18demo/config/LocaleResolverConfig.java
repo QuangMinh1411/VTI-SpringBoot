@@ -13,11 +13,12 @@ import java.util.Locale;
 public class LocaleResolverConfig {
     @Bean
     public LocaleResolver localeResolver(){
-        SessionLocaleResolver sessionLocaleResolver = new SessionLocaleResolver();
+//        SessionLocaleResolver sessionLocaleResolver = new SessionLocaleResolver();
         AcceptHeaderLocaleResolver headerLocaleResolver = new AcceptHeaderLocaleResolver();
-        sessionLocaleResolver.setDefaultLocale(Locale.US);
+//        sessionLocaleResolver.setDefaultLocale(Locale.US);
         headerLocaleResolver.setDefaultLocale(Locale.US);
-        return sessionLocaleResolver;
+//        return sessionLocaleResolver;
+        return headerLocaleResolver;
     }
 
 }
