@@ -7,16 +7,16 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import vn.vti.jsondemo.model.Car;
-import vn.vti.jsondemo.repositories.CarRepository;
+import vn.vti.jsondemo.repositories.CarRepositoryMVC;
 
 import java.util.List;
 
 @Controller
 @RequestMapping("/")
 public class CarController {
-    private final CarRepository repo;
+    private final CarRepositoryMVC repo;
 
-    public CarController(CarRepository repo) {
+    public CarController(CarRepositoryMVC repo) {
         this.repo = repo;
     }
 
