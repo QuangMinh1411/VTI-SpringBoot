@@ -47,7 +47,7 @@ public class CarRepositoryMVC {
     }
 
     public Car findByYear(int year){
-       return cars.stream().filter(car -> car.getYear()==year).findFirst().orElse(null);
+       return cars.stream().filter(car -> car.getYearmade()==year).findFirst().orElse(null);
     }
 
     public List<Car> findByMaker(String maker){
@@ -61,9 +61,9 @@ public class CarRepositoryMVC {
 
     public List<Car> sortBy(String sorting){
         if(sorting.equals("asc"))
-            Collections.sort(cars, Comparator.comparing(Car::getYear));
+            Collections.sort(cars, Comparator.comparing(Car::getYearmade));
         else
-            Collections.sort(cars,Comparator.comparing(Car::getYear).reversed());
+            Collections.sort(cars,Comparator.comparing(Car::getYearmade).reversed());
         return cars;
     }
 
@@ -77,7 +77,7 @@ public class CarRepositoryMVC {
         if(car!=null){
             car.setModel(newcar.getModel());
             car.setMaker(newcar.getMaker());
-            car.setYear(newcar.getYear());
+            car.setYearmade(newcar.getYearmade());
             cars.set(cars.indexOf(car),car);
         }
 

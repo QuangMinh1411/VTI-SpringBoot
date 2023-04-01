@@ -24,6 +24,5 @@ public class Car {
     private String maker;
     @Min(value = 1990,message = "it manufactured too long ago")
     @Max(value = 2023,message = "it is present ")
-    private Integer year;
-    private String photo;
+    private Integer yearmade;
 }

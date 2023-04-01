@@ -59,7 +59,7 @@ public class CarServiceImpl implements CarService {
         Car exist = carRepo.findById(id).get();
         exist.setModel(car.getModel());
         exist.setMaker(car.getMaker());
-        exist.setYear(car.getYear());
+        exist.setYearmade(car.getYearmade());
         carRepo.save(exist);
         return exist;
     }
