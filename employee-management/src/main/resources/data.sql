@@ -1,0 +1,10 @@
+insert into employee (name, title, age) values ('Annabel', 'Account Coordinator', 25);
+insert into employee (name, title, age) values ('Zak', 'VP Accounting', 29);
+insert into employee (name, title, age) values ('Marchelle', 'Payment Adjustment Coordinator', 31);
+insert into employee (name, title, age) values ('Glen', 'Office Assistant III', 43);
+insert into employee (name, title, age) values ('Kellyann', 'Environmental Specialist', 32);
+insert into employee (name, title, age) values ('Moshe', 'Quality Control Specialist', 47);
+insert into employee (name, title, age) values ('Alison', 'Biostatistician III', 41);
+insert into employee (name, title, age) values ('Orella', 'Teacher', 33);
+insert into employee (name, title, age) values ('Erroll', 'Human Resources Manager', 25);
+insert into employee (name, title, age) values ('Johnna', 'Legal Assistant', 444);
