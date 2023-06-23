@@ -38,7 +38,7 @@ public class StorageService {
         if(data!=null){
 
             repo.saveFile(data);
-            return "Upload image successfully: "+ file.getOriginalFilename();
+            return "Upload image successfully: "+ file.getOriginalFilename()+ " with:" + data.getId();
         }
         return null;
     }
